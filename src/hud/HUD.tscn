@@ -1,0 +1,156 @@
+[gd_scene load_steps=7 format=3 uid="uid://bb1hsuh1l7pw8"]
+
+[ext_resource type="Script" path="res://src/hud/HUD.gd" id="1_j8qdi"]
+[ext_resource type="FontFile" uid="uid://bc3fyvmycp8bg" path="res://assets/fonts/Perfect DOS VGA 437.ttf" id="1_r101j"]
+[ext_resource type="PackedScene" uid="uid://1ffsiva2vvnc" path="res://src/items/Interface/Inventory.tscn" id="1_vufs0"]
+[ext_resource type="Texture2D" uid="uid://cy87t2a6w7cf2" path="res://assets/weapons/crosshair.png" id="3_qopk3"]
+[ext_resource type="Texture2D" uid="uid://dvx56pqg6x2jm" path="res://assets/items/scrolls/Scroll.png" id="5_1b0r7"]
+
+[sub_resource type="Theme" id="Theme_oscd6"]
+default_font = ExtResource("1_r101j")
+default_font_size = 30
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_oscd6")
+script = ExtResource("1_j8qdi")
+
+[node name="DiaryText" type="RichTextLabel" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+fit_content = true
+autowrap_mode = 0
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="ColorRect" type="ColorRect" parent="DiaryText"]
+visible = false
+z_index = 1
+z_as_relative = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="ScrollSpeedTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="Inventory" parent="." instance=ExtResource("1_vufs0")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.942901
+anchor_right = 0.5
+anchor_bottom = 0.942901
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(75, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -68.0
+offset_right = 90.0
+offset_bottom = -18.0
+grow_vertical = 0
+
+[node name="Crosshair" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.352941)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qopk3")
+stretch_mode = 2
+
+[node name="InteractableLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = 20.0
+offset_right = 155.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 18
+fit_content = true
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -21.0
+offset_right = 136.0
+offset_bottom = 22.0
+grow_vertical = 2
+auto_height = true
+item_count = 2
+item_0/text = "Diary 0"
+item_1/text = "Diary 1"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+z_index = 3
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -337.5
+offset_right = 375.0
+offset_bottom = 337.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_1b0r7")
+
+[node name="HitColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 577.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 0, 0)
+
+[connection signal="timeout" from="ScrollSpeedTimer" to="." method="_on_scroll_speed_timer_timeout"]
+[connection signal="item_activated" from="ItemList" to="." method="_on_item_list_item_activated"]

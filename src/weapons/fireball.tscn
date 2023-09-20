@@ -1,0 +1,200 @@
+[gd_scene load_steps=15 format=3 uid="uid://cuuhvl7xp273o"]
+
+[ext_resource type="Script" path="res://src/weapons/fireball.gd" id="1_qkeo4"]
+[ext_resource type="ArrayMesh" uid="uid://cemtnrv8m7qt1" path="res://assets/weapons/fireball-mesh.tres" id="2_x2ots"]
+[ext_resource type="AudioStream" uid="uid://b4u3cf271tub7" path="res://assets/sfx/fire-magic-6947.mp3" id="3_dxtg4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hha20"]
+radius = 0.25
+
+[sub_resource type="Gradient" id="Gradient_nbb6y"]
+offsets = PackedFloat32Array(0, 0.572139)
+colors = PackedColorArray(0.917647, 0.945098, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8d6pm"]
+gradient = SubResource("Gradient_nbb6y")
+
+[sub_resource type="Curve" id="Curve_5238g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_6wdi7"]
+curve = SubResource("Curve_5238g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2yk0r"]
+lifetime_randomness = 0.4
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 10.0
+scale_min = 0.1
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_6wdi7")
+color = Color(1, 1, 0, 1)
+color_ramp = SubResource("GradientTexture1D_8d6pm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4sg7"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_i70aa"]
+material = SubResource("StandardMaterial3D_v4sg7")
+
+[sub_resource type="Animation" id="Animation_6qfdj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0e653"]
+resource_name = "explode"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dnj7u"]
+_data = {
+"RESET": SubResource("Animation_6qfdj"),
+"explode": SubResource("Animation_0e653")
+}
+
+[node name="Fireball" type="Area3D"]
+top_level = true
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_qkeo4")
+
+[node name="MeshInstance" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = ExtResource("2_x2ots")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_hha20")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.94902, 0.435294, 0, 1)
+light_energy = 7.0
+omni_range = 10.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_dxtg4")
+volume_db = -6.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 128
+lifetime = 1.4
+one_shot = true
+explosiveness = 0.85
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_2yk0r")
+draw_pass_1 = SubResource("BoxMesh_i70aa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dnj7u")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

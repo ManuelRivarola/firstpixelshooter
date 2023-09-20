@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://c8fqjhnspgfa6"]
+
+[ext_resource type="Script" path="res://src/doors/door.gd" id="1_boeij"]
+[ext_resource type="Script" path="res://src/doors/_door.gd" id="2_df2a5"]
+[ext_resource type="ArrayMesh" uid="uid://bbrs3sotp5lrc" path="res://assets/tiles/doors/door-frame.tres" id="2_n0lox"]
+[ext_resource type="ArrayMesh" uid="uid://tvy58r5gui45" path="res://assets/tiles/doors/door.tres" id="2_vmpdd"]
+
+[sub_resource type="Animation" id="Animation_ql3ps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jqrml"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j3d2d"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eyaa1"]
+_data = {
+"RESET": SubResource("Animation_ql3ps"),
+"close": SubResource("Animation_jqrml"),
+"open": SubResource("Animation_j3d2d")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qxwn0"]
+size = Vector3(0.415862, 2.72044, 2.0854)
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_boeij")
+
+[node name="DoorFrame2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("2_n0lox")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eyaa1")
+}
+
+[node name="Hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827707, 0, 0)
+
+[node name="Door" type="StaticBody3D" parent="Hinge" groups=["interactables"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.831953, -0.552831, -0.0678746)
+collision_layer = 17
+script = ExtResource("2_df2a5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.070598, 0.588322, -1.39698e-09)
+mesh = ExtResource("2_vmpdd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.070598, 0.639868, -1.39698e-09)
+shape = SubResource("BoxShape3D_qxwn0")

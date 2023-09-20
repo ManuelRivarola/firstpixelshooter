@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://8wxva8h42oyg"
+path="res://.godot/imported/blue-key.obj-7f5c4b56bf385ab3c38a1b0eee3c3703.mesh"
+
+[deps]
+
+files=["res://.godot/imported/blue-key.obj-7f5c4b56bf385ab3c38a1b0eee3c3703.mesh"]
+
+source_file="res://assets/items/keys/blue-key.obj"
+dest_files=["res://.godot/imported/blue-key.obj-7f5c4b56bf385ab3c38a1b0eee3c3703.mesh", "res://.godot/imported/blue-key.obj-7f5c4b56bf385ab3c38a1b0eee3c3703.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

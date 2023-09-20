@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://oo12l0mlc4pc"]
+
+[ext_resource type="ArrayMesh" uid="uid://drhtvv3tg4ake" path="res://assets/mobs/skull/skull_essence.tres" id="1_fvvyc"]
+
+[node name="SkullEssence" type="MeshInstance3D"]
+transform = Transform3D(-0.25, 0, 2.23517e-08, 0, 0.25, 0, -2.23517e-08, 0, -0.25, 0, 0, 0)
+mesh = ExtResource("1_fvvyc")

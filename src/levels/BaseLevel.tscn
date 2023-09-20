@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0x0fw705i8aa"]
+
+[ext_resource type="Script" path="res://src/levels/Level.gd" id="1_drmfb"]
+[ext_resource type="PackedScene" uid="uid://bb1hsuh1l7pw8" path="res://src/hud/HUD.tscn" id="2_q6wm3"]
+[ext_resource type="MeshLibrary" uid="uid://cweedoo2else2" path="res://assets/tiles/tiles.tres" id="3_wqho0"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_r4571"]
+filter_ledge_spans = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3w22f"]
+size = Vector3(300, 1, 300)
+
+[sub_resource type="Environment" id="Environment_plwot"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_drmfb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("2_q6wm3")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_r4571")
+
+[node name="GridMap" type="GridMap" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0765662, 0)
+mesh_library = ExtResource("3_wqho0")
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="SkyBox" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SkyBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150, 0)
+shape = SubResource("BoxShape3D_3w22f")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SkyBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -150, 0)
+shape = SubResource("BoxShape3D_3w22f")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="SkyBox"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 150)
+shape = SubResource("BoxShape3D_3w22f")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="SkyBox"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -150)
+shape = SubResource("BoxShape3D_3w22f")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="SkyBox"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 150, 0, 0)
+shape = SubResource("BoxShape3D_3w22f")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="SkyBox"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -150, 0, 0)
+shape = SubResource("BoxShape3D_3w22f")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_plwot")

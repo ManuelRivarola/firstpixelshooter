@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dho7iva48adqe"
+path="res://.godot/imported/deadmage.obj-b36a88e71fc13cb01b19dc023ee47e41.mesh"
+
+[deps]
+
+files=["res://.godot/imported/deadmage.obj-b36a88e71fc13cb01b19dc023ee47e41.mesh"]
+
+source_file="res://assets/mobs/deadmage/deadmage.obj"
+dest_files=["res://.godot/imported/deadmage.obj-b36a88e71fc13cb01b19dc023ee47e41.mesh", "res://.godot/imported/deadmage.obj-b36a88e71fc13cb01b19dc023ee47e41.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,10 @@
+{
+	"BoneDagger": {
+		"name": "Bone Dagger",
+		"scene": "res://src/weapons/dagger/dagger.tscn"
+	},
+	"Wand": {
+		"name": "Wand",
+		"scene": "res://src/weapons/wand.tscn"
+	}
+}

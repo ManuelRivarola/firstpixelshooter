@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://1ffsiva2vvnc"]
+
+[ext_resource type="Script" path="res://src/items/Interface/Inventory.gd" id="1_y4y46"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+script = ExtResource("1_y4y46")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_right = 64.0
+grow_vertical = 0
+columns = 6
+
+[node name="AddTestItem" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -79.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Add Item"
+
+[node name="RemoveTestItem" type="Button" parent="."]
+visible = false
+layout_mode = 1
+offset_right = 79.0
+offset_bottom = 31.0
+text = "Remove Item"
+
+[connection signal="pressed" from="AddTestItem" to="." method="_on_add_test_item_pressed"]
+[connection signal="pressed" from="RemoveTestItem" to="." method="_on_remove_test_item_pressed"]

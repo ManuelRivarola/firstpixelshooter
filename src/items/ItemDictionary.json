@@ -1,0 +1,83 @@
+{
+	"Health Potion": {
+		"id": 0,
+		"name": "Health Potion",
+		"category": "Potion",
+		"consumable": true,
+		"heal": 2,
+		"description": "Its a health potion",
+		"icon_path": "res://assets/items/potion.png",
+		"mesh_path": "res://assets/items/potion-mesh.tres",
+		"stack_size": 5
+	},
+	"Skull Essence": {
+		"id": 1,
+		"name": "Skull Essence",
+		"category": "Essence",
+		"consumable": true,
+		"description": "The essence of undeath",
+		"icon_path": "res://assets/mobs/skull/skull-icon.png",
+		"mesh_path": "res://assets/mobs/skull/skull_essence.tres",
+		"stack_size": 5
+	},
+	"Test Item": {
+		"id": 100,
+		"name": "Test Item",
+		"consumable": false,
+		"description": "Test Item Description",
+		"icon_path": "res://assets/items/potion.png",
+		"stack_size": 5
+	},
+	"Red Key": {
+		"id": 2,
+		"name": "Red Key",
+		"category": "Key",
+		"consumable": false,
+		"description": "Its a red key",
+		"icon_path": "res://assets/items/keys/key-red-icon.png",
+		"mesh_path": "res://assets/items/keys/red-key.obj",
+		"stack_size": 1
+	},
+	"Blue Key": {
+		"id": 3,
+		"name": "Blue Key",
+		"category": "Key",
+		"consumable": false,
+		"description": "Its a blue key",
+		"icon_path": "res://assets/items/keys/key-blue-icon.png",
+		"mesh_path": "res://assets/items/keys/blue-key.obj",
+		"stack_size": 1
+	},
+	"Green Key": {
+		"id": 4,
+		"name": "Green Key",
+		"category": "Key",
+		"consumable": false,
+		"description": "Its a green key",
+		"icon_path": "res://assets/items/keys/key-green-icon.png",
+		"mesh_path": "res://assets/items/keys/green-key.obj",
+		"stack_size": 1
+	},
+	"Fire Essence": {
+		"id": 5,
+		"name": "Fire Essence",
+		"category": "Essence",
+		"consumable": true,
+		"description": "The essence of fire",
+		"icon_path": "res://assets/items/fire-essence-icon.png",
+		"mesh_path": "res://assets/items/fire-essence.tres",
+		"stack_size": 5
+	},
+	"Speed Potion": {
+		"id":6,
+		"name": "Speed Essence",
+		"category": "Potion",
+		"speed": 0.5,
+		"duration": 10,
+		"consumable": true,
+		"description": "Duplica tu velocidad",
+		"icon_path": "res://assets/items/speed-potion-icon.png",
+		"mesh_path": "res://assets/items/speed-potion-mesh.mesh",
+		"stack_size": 5
+	}
+}

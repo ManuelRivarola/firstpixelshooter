@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://j1kcl2es6w6b"
+path="res://.godot/imported/fire-essence.obj-ac5f2e4a4b474982b978dd68ed7fc7f3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fire-essence.obj-ac5f2e4a4b474982b978dd68ed7fc7f3.mesh"]
+
+source_file="res://assets/items/fire-essence.obj"
+dest_files=["res://.godot/imported/fire-essence.obj-ac5f2e4a4b474982b978dd68ed7fc7f3.mesh", "res://.godot/imported/fire-essence.obj-ac5f2e4a4b474982b978dd68ed7fc7f3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

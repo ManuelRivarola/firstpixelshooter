@@ -1,0 +1,19 @@
+<mxfile host="app.diagrams.net" modified="2023-08-31T15:19:08.801Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="nyAyggq66LGP2rBenzSG" version="21.7.1" type="device">
+  <diagram name="Página-1" id="YslxTjj87sP1fhmUUkJt">
+    <mxGraphModel dx="1195" dy="658" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="vs_MiK4qVkqJYWf3pe7V-1" value="Entrada" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="1080" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vs_MiK4qVkqJYWf3pe7V-2" value="Salida" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="384" y="610" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vs_MiK4qVkqJYWf3pe7V-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="970" width="60" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

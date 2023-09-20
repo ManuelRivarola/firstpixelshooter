@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dc5khdnmbpvqf"
+path="res://.godot/imported/Murito solito mi vida.obj-e0d17767f1aecdb60d7a60963b41ffec.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Murito solito mi vida.obj-e0d17767f1aecdb60d7a60963b41ffec.mesh"]
+
+source_file="res://assets/tiles/Murito solito mi vida.obj"
+dest_files=["res://.godot/imported/Murito solito mi vida.obj-e0d17767f1aecdb60d7a60963b41ffec.mesh", "res://.godot/imported/Murito solito mi vida.obj-e0d17767f1aecdb60d7a60963b41ffec.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

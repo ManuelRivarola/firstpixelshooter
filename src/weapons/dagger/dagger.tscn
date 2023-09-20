@@ -1,0 +1,249 @@
+[gd_scene load_steps=12 format=3 uid="uid://da8lss11k80r6"]
+
+[ext_resource type="Script" path="res://src/weapons/dagger/dagger.gd" id="1_p2us8"]
+[ext_resource type="ArrayMesh" uid="uid://c47yxvrjsmp3o" path="res://assets/weapons/dagger/dagger.mesh" id="2_01wh6"]
+[ext_resource type="Material" uid="uid://cy7r33fudb20r" path="res://assets/weapons/dagger/dagger.material" id="3_173mi"]
+[ext_resource type="AudioStream" uid="uid://cdj2mn7esd0bg" path="res://assets/sfx/slash-21834.mp3" id="3_pmw7o"]
+[ext_resource type="AudioStream" uid="uid://cahgp72efeo0b" path="res://assets/sfx/hit-swing-sword-small-2-95566.mp3" id="4_us1a8"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_okhwn"]
+height = 0.483916
+radius = 1.96423
+
+[sub_resource type="Animation" id="Animation_7ymyr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dagger:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dagger:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dagger/AttackArea:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Swing:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dagger:surface_material_override/0:emission")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bjtjv"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dagger:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.6, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.405246, 0.120122, 0.145672), Vector3(0.405246, 0.120122, 0.145672), Vector3(-0.559974, 0, 1.06708), Vector3(-0.559974, 0, 1.06708), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dagger:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.6, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.377516, -1.00288, -0.230988), Vector3(-0.377516, -1.00288, -0.230988), Vector3(-1.4508, 1.3562, 1.06799), Vector3(-1.4508, 1.3562, 1.06799), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dagger/AttackArea:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Swing:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_gcusm"]
+resource_name = "charged"
+length = 0.50001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dagger:surface_material_override/0:emission")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.698039, 0.698039, 0.698039, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o0des"]
+resource_name = "put_away"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.475, -1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.0472, 1.5708)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0loer"]
+_data = {
+"RESET": SubResource("Animation_7ymyr"),
+"attack": SubResource("Animation_bjtjv"),
+"charged": SubResource("Animation_gcusm"),
+"put_away": SubResource("Animation_o0des")
+}
+
+[node name="Dagger" type="Node3D"]
+script = ExtResource("1_p2us8")
+damage = 1
+attack_move_speed_scale = 0.5
+
+[node name="Dagger" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+mesh = ExtResource("2_01wh6")
+surface_material_override/0 = ExtResource("3_173mi")
+
+[node name="AttackArea" type="Area3D" parent="Dagger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.64954, 0)
+collision_layer = 0
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dagger/AttackArea"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.746597, 0)
+shape = SubResource("CylinderShape3D_okhwn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0loer")
+}
+
+[node name="ChargedPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0loer")
+}
+
+[node name="Swing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pmw7o")
+volume_db = -12.0
+pitch_scale = 1.5
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_us1a8")
+volume_db = -6.0
+
+[node name="ChargedTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="body_entered" from="Dagger/AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="ChargedTimer" to="." method="_on_charged_timer_timeout"]

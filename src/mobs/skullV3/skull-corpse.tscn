@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbjct27e5ltw8"]
+
+[ext_resource type="ArrayMesh" uid="uid://wt7uasao65hi" path="res://assets/mobs/skull/skull.obj" id="1_tmuha"]
+[ext_resource type="Texture2D" uid="uid://c8vxohll2253e" path="res://assets/mobs/skull/skull.png" id="2_xwccg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ust2"]
+bounce = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8aidf"]
+albedo_texture = ExtResource("2_xwccg")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h0q7u"]
+size = Vector3(1.30824, 1.52629, 0.188064)
+
+[node name="skull-corpse" type="RigidBody3D"]
+collision_layer = 0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0, -0.15)
+physics_material_override = SubResource("PhysicsMaterial_8ust2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.6, 0, -9.05975e-08, 0, 0.6, 0, 9.05975e-08, 0, -0.6, 0, 0, 0)
+mesh = ExtResource("1_tmuha")
+surface_material_override/0 = SubResource("StandardMaterial3D_8aidf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_h0q7u")

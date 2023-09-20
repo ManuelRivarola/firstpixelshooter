@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://1nvnw7swksxv"
+path="res://.godot/imported/antorcha vertical.obj-8c52fba93864c9044db1ef902cd39800.mesh"
+
+[deps]
+
+files=["res://.godot/imported/antorcha vertical.obj-8c52fba93864c9044db1ef902cd39800.mesh"]
+
+source_file="res://assets/decorations/torches/Antorcha vertical/antorcha vertical.obj"
+dest_files=["res://.godot/imported/antorcha vertical.obj-8c52fba93864c9044db1ef902cd39800.mesh", "res://.godot/imported/antorcha vertical.obj-8c52fba93864c9044db1ef902cd39800.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

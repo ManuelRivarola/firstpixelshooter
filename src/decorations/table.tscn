@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://djp6n5il7fgav"]
+
+[ext_resource type="ArrayMesh" uid="uid://c2s7ljegau06e" path="res://assets/decorations/table.tres" id="1_84yyo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pgncs"]
+size = Vector3(0.819525, 0.667134, 1.42909)
+
+[node name="Table" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_84yyo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.216734, 0)
+shape = SubResource("BoxShape3D_pgncs")

@@ -127,7 +127,7 @@ func heal(amount: int):
 	emit_signal("health_changed", hp)
 
 func _on_item_used(item_name: String, _target: String):
-	var item = PlayerInventory.item_dictionary[item_name]
+	var item = ItemIndex.get_item(item_name)
 	if item == null:
 		return
 	print("Using Item: ", item["name"])

@@ -21,7 +21,7 @@ func get_stack_size() -> int:
 	return int(text)
 
 func is_full() -> bool:
-	return int(text) == PlayerInventory.item_dictionary[item_name]["stack_size"]
+	return int(text) == ItemIndex.get_item_property(item_name, "stack_size")
 
 func is_empty() -> bool:
 	return item_name == "Empty"
@@ -31,7 +31,7 @@ func set_item(_item_name: String, amount: int) -> void:
 	get_popup().add_item("Use")
 	if item_name != _item_name:
 		item_name = _item_name
-		icon = load(PlayerInventory.item_dictionary[_item_name]["icon_path"])
+		icon = ItemIndex.get_item_property(_item_name, "icon")
 		tooltip_text = item_name
 	set_stack_size(amount)
 

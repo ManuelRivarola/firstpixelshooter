@@ -27,7 +27,7 @@ func initialize() -> void:
 	var item_drop_scene: PackedScene = load("res://src/items/ItemDrop.tscn")
 	for item_name in inventory:
 		var drop = item_drop_scene.instantiate()
-		var item_mesh: ArrayMesh = load(PlayerInventory.item_dictionary[item_name]["mesh_path"])
+		var item_mesh: ArrayMesh = ItemIndex.get_item_property(item_name, "mesh")
 		drop.initialize(item_mesh, item_name)
 		item_drops.append(drop)
 	target_groups = GlobalLevel.TARGET_GROUPS[allegiance]
@@ -41,7 +41,7 @@ func change_allegiance(new_allegiance: String) -> void:
 func add_item(item_name: String, amount: int):
 	var item_drop_scene: PackedScene = load("res://src/items/ItemDrop.tscn")
 	var drop = item_drop_scene.instantiate()
-	var item_mesh: ArrayMesh = load(PlayerInventory.item_dictionary[item_name]["mesh_path"])
+	var item_mesh: ArrayMesh = ItemIndex.get_item_property(item_name, "mesh")
 	drop.initialize(item_mesh, item_name)
 	for i in amount:
 		item_drops.append(drop)

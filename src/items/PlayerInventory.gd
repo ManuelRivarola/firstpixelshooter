@@ -10,7 +10,6 @@ class ItemSlot:
 	func is_slot_full(stack_size: int) -> bool:
 		return self.amount == stack_size
 
-var item_dictionary: Dictionary
 var inventory: Array[ItemSlot]
 var weapon_inventory: Array[PackedScene]
 var unlocked_diaries: Array[String]
@@ -29,18 +28,17 @@ func _ready():
 func initialize_inventory(inventory_slots: int = 8) -> void:
 	var path = "res://src/items/ItemDictionary.json"
 	var json_as_string = FileAccess.get_file_as_string(path)
-	item_dictionary = JSON.parse_string(json_as_string)
 	for i in inventory_slots:
 		inventory.append(ItemSlot.new())
 		
 	unlocked_diaries.append("Diary 0")
 
 func item_stack_size(item_name: String) -> int:
-	assert(item_dictionary.has(item_name))
-	return item_dictionary[item_name]["stack_size"]
+	assert(ItemIndex.item_exists(item_name))
+	return ItemIndex.get_item_property(item_name, "stack_size")
 
 func add_item(item_name: String, amount: int) -> bool:
-	assert(item_dictionary.has(item_name))
+	assert(ItemIndex.item_exists(item_name))
 	var first_empty_slot = -1
 	var added = false
 	
@@ -75,17 +73,17 @@ func has_item(item_name: String) -> bool:
 	return exists
 
 func use_item(item_name: String):
-	assert(item_dictionary.has(item_name))
+	assert(ItemIndex.item_exists(item_name))
 	assert(has_item(item_name))
 	
-	if item_dictionary[item_name]["consumable"]:
+	if ItemIndex.get_item_property(item_name, "consumable"):
 		consume_item(item_name, 1)
 	print(typeof(item_name))
 	print(typeof("item_used"))
 	emit_signal("item_used", item_name, "Player")
 
 func consume_item(item_name: String, amount: int) -> bool:
-	assert(item_dictionary.has(item_name))
+	assert(ItemIndex.item_exists(item_name))
 	var removed = false
 	
 	for i in inventory:

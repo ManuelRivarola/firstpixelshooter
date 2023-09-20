@@ -6,7 +6,7 @@ class_name ItemDrop
 
 func _ready():
 	if self.item_name != "":
-		var mesh = load(PlayerInventory.item_dictionary[item_name]["mesh_path"])
+		var mesh = ItemIndex.get_item_property(self.item_name, "mesh")
 		sleeping = true
 		initialize(mesh, self.item_name)
 

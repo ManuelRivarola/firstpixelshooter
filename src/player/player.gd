@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-class_name Player
+#class_name Player
 	
 const MOVE_SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -41,8 +41,8 @@ func _input(event: InputEvent) -> void:
 	var current_mouse_mode = Input.mouse_mode
 	if event.is_action_pressed("attack") and current_mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		if weapon.active:
-			$MovementSpeedTimer.start()
-			change_move_speed(weapon.attack_move_speed_change)
+			#$MovementSpeedTimer.start()
+			#change_move_speed(weapon.attack_move_speed_change)
 			weapon.attack()
 
 	if event.is_action_pressed("use") and current_mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -81,7 +81,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y -= gravity * delta
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -149,7 +149,6 @@ func add_weapon(new_weapon: Weapon):
 		if new_weapon.name == w.name:
 			print("Error! Ya existe arma con nombre: ", new_weapon.name)
 			return
-			
 			
 	new_weapon.user = self
 	new_weapon.raycast = target_cast

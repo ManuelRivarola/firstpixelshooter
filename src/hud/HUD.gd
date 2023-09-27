@@ -20,7 +20,7 @@ func initialize(player: Player):
 	player.inventory_activated.connect(_on_inventory_activation)
 	player.damage_received.connect(_on_player_damage_received)
 	player.looking_at_item.connect(_on_looking_at_item)
-	set_health(player.hp)
+	set_health(player.current_hp)
 
 func set_health(health):
 	health_label.text = str(health)
@@ -44,8 +44,7 @@ func _on_inventory_activation():
 func _on_looking_at_item(item_name: String):
 	interactable_label.text = item_name
 
-func _on_player_damage_received(damage: int, type: String):
-	print("tweening")
+func _on_player_damage_received(damage: int, _msg = {}):
 	var tween = get_tree().create_tween()
 	tween.set_loops(1)
 	$HitColor.color += Color(0, 0, 0, 0.8)

@@ -10,13 +10,13 @@ func damage_animation():
 	tween.tween_property(material, "albedo_color", Color.RED, 0.2)
 	tween.tween_property(material, "albedo_color", Color.WHITE, 0.2)
 
-func receive_hit(damage, hit_position, _msg = {}):
+func receive_hit(damage, hit_position, msg = {}):
 	health -= damage
 	if health <= 0:
 		die()
 	else:
 		damage_animation()
-	emit_signal("damage_received", damage, hit_position)
+	emit_signal("damage_received", damage, hit_position, msg)
 
 func die() -> void:
 	if get_parent() != null:

@@ -30,7 +30,7 @@ func hold():
 	animation_player.play("RESET")
 	animation_player.play_backwards("put_away")
 
-func _on_PlayerInventory_item_used(item_name: String, user: String):
+func _on_PlayerInventory_item_used(item_name: String, _user: String):
 	if item_name == "Fire Essence" and not PlayerInventory.has_item("Fire Essence"):
 		essence_timer.start()
 

@@ -32,7 +32,6 @@ transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0.635137, 
 
 [node name="Wand" parent="Head/Camera3D/Hand" instance=ExtResource("2_msfam")]
 visible = false
-attack_move_speed_scale = null
 
 [node name="CrosshairCast" type="RayCast3D" parent="Head/Camera3D"]
 target_position = Vector3(0, -1, -1000)

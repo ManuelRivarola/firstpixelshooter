@@ -30,6 +30,7 @@ mesh = SubResource("ArrayMesh_4ad88")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0811599, 0.246976, 0.383475)
 light_color = Color(1, 0.709804, 0.301961, 1)
-light_energy = 4.0
+light_energy = 2.0
 shadow_enabled = true
+shadow_blur = 0.0
 omni_range = 10.0

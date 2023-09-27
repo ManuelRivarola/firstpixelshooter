@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cj0hsq5e5mlu6"]
+
+[ext_resource type="Script" path="res://src/playerV2/player.gd" id="1_pv0dc"]
+[ext_resource type="PackedScene" uid="uid://cbv6w5mdm1mly" path="res://src/weapons/wand.tscn" id="2_suhrl"]
+[ext_resource type="PackedScene" uid="uid://da8lss11k80r6" path="res://src/weapons/dagger/dagger.tscn" id="3_yis56"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u72s1"]
+shading_mode = 0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_b0oxl"]
+material = SubResource("StandardMaterial3D_u72s1")
+radius = 0.375
+height = 1.5
+radial_segments = 16
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d8yll"]
+radius = 0.375
+height = 1.5
+
+[node name="Player" type="CharacterBody3D" groups=["creatures", "player"]]
+collision_layer = 34
+collision_mask = 7
+script = ExtResource("1_pv0dc")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="Hand" type="Node3D" parent="Head/Camera3D"]
+transform = Transform3D(0.551937, 0, -0.833886, 0, 1, 0, 0.833886, 0, 0.551937, 0.6, -0.3, -0.7)
+
+[node name="Dagger" parent="Head/Camera3D/Hand" instance=ExtResource("3_yis56")]
+
+[node name="Wand" parent="Head/Camera3D/Hand" instance=ExtResource("2_suhrl")]
+visible = false
+
+[node name="InteractablesRay" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -3)
+collision_mask = 16
+collide_with_areas = true
+
+[node name="CrosshairRay" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, -1, -1000)
+collision_mask = 13
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_b0oxl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_d8yll")

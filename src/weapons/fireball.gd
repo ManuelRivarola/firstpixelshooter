@@ -18,8 +18,8 @@ func _physics_process(delta):
 func _on_timer_timeout():
 	queue_free()
 
-func spawn(origin: Vector3, target_position: Vector3, user: Node3D):
-	self.user = user
+func spawn(origin: Vector3, target_position: Vector3, user_: Node3D):
+	self.user = user_
 	
 	GlobalLevel.level_root.add_child(self)
 	origin_position = origin
@@ -32,7 +32,7 @@ func spawn(origin: Vector3, target_position: Vector3, user: Node3D):
 
 func _on_body_entered(body):
 	if body.has_method("receive_hit"):
-		body.receive_hit(DAMAGE, origin_position, {})
+		body.receive_hit(DAMAGE, origin_position, {"dmg_type": "fire"})
 	set_physics_process(false)
 	$AnimationPlayer.play("explode")
 	await $AnimationPlayer.animation_finished

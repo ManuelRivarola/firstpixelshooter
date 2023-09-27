@@ -204,7 +204,6 @@ _data = {
 [node name="Dagger" type="Node3D"]
 script = ExtResource("1_p2us8")
 damage = 1
-attack_move_speed_scale = 0.5
 
 [node name="Dagger" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
@@ -244,6 +243,10 @@ volume_db = -6.0
 wait_time = 10.0
 one_shot = true
 
+[node name="MoveSpeedTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="Dagger/AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="ChargedTimer" to="." method="_on_charged_timer_timeout"]
+[connection signal="timeout" from="MoveSpeedTimer" to="." method="_on_move_speed_timer_timeout"]

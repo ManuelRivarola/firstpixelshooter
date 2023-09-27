@@ -21,7 +21,7 @@ func hit():
 	var bodies = attack_area.get_overlapping_bodies()
 	for body in bodies:
 		if body.has_method("receive_hit"):
-			body.receive_hit(mob.damage, mob.global_position)
+			body.receive_hit(mob.damage, mob.global_position, {"dmg_type": "physical"})
 
 
 func _on_animation_player_animation_finished(anim_name):

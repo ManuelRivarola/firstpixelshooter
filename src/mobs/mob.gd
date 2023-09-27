@@ -60,7 +60,7 @@ func rotate_towards(target_position: Vector3, delta: float):
 	var target_direction = -1 if target_angle < 0 else 1
 	global_rotate(Vector3.UP, delta * target_direction * 5)
 
-func receive_hit(damage: int, hit_position: Vector3, msg: Dictionary = {}):
+func receive_hit(damage: int, hit_position: Vector3, msg = {}):
 	pass
 
 func heal(amount: int):

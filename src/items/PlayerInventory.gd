@@ -27,7 +27,6 @@ func _ready():
 	
 func initialize_inventory(inventory_slots: int = 8) -> void:
 	var path = "res://src/items/ItemDictionary.json"
-	var json_as_string = FileAccess.get_file_as_string(path)
 	for i in inventory_slots:
 		inventory.append(ItemSlot.new())
 		
@@ -78,8 +77,6 @@ func use_item(item_name: String):
 	
 	if ItemIndex.get_item_property(item_name, "consumable"):
 		consume_item(item_name, 1)
-	print(typeof(item_name))
-	print(typeof("item_used"))
 	emit_signal("item_used", item_name, "Player")
 
 func consume_item(item_name: String, amount: int) -> bool:
